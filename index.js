@@ -1,7 +1,7 @@
 const express = require("express");
-const app = express();
+
 const mongoose = require("mongoose");
-const port = 3000;
+
 
 // Middlewares 
 
@@ -16,8 +16,19 @@ app.post('/', (req, res) => {
 });
 
 // Connect to DB
-mongoose.connect('')
+mongoose.connect(process.env.ATLAS_URI);
+
+
+
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 
 // listening to the server
 app.listen(3000);
+
+//-------------------
+
+
+
